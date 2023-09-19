@@ -15,13 +15,14 @@ CREATE TABLE employees(
 );
 
 CREATE TABLE salaries(
-	emp_no VARCHAR(10) PRIMARY KEY,
-	salary INTEGER
+	emp_no VARCHAR(10),
+	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
+	salary INTEGER DEFAULT 0
 );
 
 CREATE TABLE departments(
 	dept_no VARCHAR(10) PRIMARY KEY,
-	dept_name VARCHAR(50)
+	dept_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE dept_emp(
